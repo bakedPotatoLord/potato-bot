@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-//const {client} = require("../index.js")
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,7 +6,7 @@ module.exports = {
 		.setDescription('shut down the server'),
 
 	async execute(interaction) {
-        if(interaction.user.id == "750347468826345492"){
+        if(interaction.user.id == "750347468826345492" || interaction.user.id == "530508910713372682"){
 
             process.exit()
         }else{
