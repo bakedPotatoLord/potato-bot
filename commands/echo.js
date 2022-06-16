@@ -14,7 +14,7 @@ module.exports={
 
             let data = await fs.readFile("users.json","utf-8")
 
-            return interaction.reply(`you said \n\n"${interaction.options.getString("input")}" `)
+            return interaction.reply(`you said: \n\n"${interaction.options.getString("input")}" `)
         }
 }
 
