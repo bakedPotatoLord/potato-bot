@@ -51,7 +51,7 @@ client.on('messageCreate', message => {
 
 	if(checkforWord(message.content,"balls")){
 		message.react('🤨')
-	}else if(checkforWord(message.content,"among us") || checkforWord(message.content,"amogus")){
+	}else if(checkforWord(message.content,"amongus") || checkforWord(message.content,"amogus")){
 		message.react('🤢')
 	}
 
@@ -61,5 +61,5 @@ client.on('messageCreate', message => {
 client.login(token);
 
 function checkforWord(inp,word){
-	return (inp.toLowerCase().replace(" ","").includes(word))
+	return (inp.toLowerCase().replace(/ /g,"").includes(word))
 }
