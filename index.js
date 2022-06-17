@@ -1,10 +1,15 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Intents, Emoji } = require('discord.js');
+const { Client, Collection, Intents, Emoji, ReactionEmoji, MessageReaction } = require('discord.js');
 const { token } = require('./config.json');
 const { ClientRequest } = require('node:http');
+const disses = require("./disses.json") 
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [
+	Intents.FLAGS.GUILDS,
+	Intents.FLAGS.GUILD_MESSAGES,
+	Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS
+] });
 
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
@@ -35,12 +40,18 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-client.on('message',async message => {
+client.on('messageCreate', message => {
 	console.log("recived a message")
-	let disses =await fs.readFile("./disses.json","utf-8")
-	await message.reply(disses[Math.floor(Math.random()*disses.length)])
+
+	if(message.author.id == "790765656571379762" || message.content.toLowerCase() == "diss me"){
+
+		
+		message.reply(disses[Math.floor(Math.random()*disses.length)])
+	}
+	
 
 });
 
 
 client.login(token);
+
