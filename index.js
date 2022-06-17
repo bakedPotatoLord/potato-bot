@@ -48,7 +48,12 @@ client.on('messageCreate', message => {
 		message.react('😡')
 		message.reply(disses[Math.floor(Math.random()*disses.length)])
 	}
-	
+
+	if(message.content.toLowerCase().includes("balls")){
+		message.react('🤨')
+	}else if(message.content.toLowerCase().includes("among us") || message.content.toLowerCase().includes("amogus")){
+		message.react('🤢')
+	}
 
 });
 
