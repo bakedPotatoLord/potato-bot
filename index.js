@@ -42,8 +42,8 @@ client.on('interactionCreate', async interaction => {
 
 client.on('messageCreate', message => {
 	console.log("recived a message")
-
-	if(message.author.id == "790765656571379762" || message.content.toLowerCase() == "diss me"){
+	
+	if(message.author.id == "790765656571379762" || checkforWord(message.content,"diss me")){
 
 		message.react('😡')
 		message.reply(disses[Math.floor(Math.random()*disses.length)])
