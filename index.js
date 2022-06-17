@@ -49,9 +49,9 @@ client.on('messageCreate', message => {
 		message.reply(disses[Math.floor(Math.random()*disses.length)])
 	}
 
-	if(message.content.toLowerCase().includes("balls")){
+	if(checkforWord(message.content,"balls")){
 		message.react('🤨')
-	}else if(message.content.toLowerCase().includes("among us") || message.content.toLowerCase().includes("amogus")){
+	}else if(checkforWord(message.content,"among us") || checkforWord(message.content,"amogus")){
 		message.react('🤢')
 	}
 
@@ -60,3 +60,6 @@ client.on('messageCreate', message => {
 
 client.login(token);
 
+function checkforWord(inp,word){
+	return (inp.toLowerCase().replace(" ","").includes(word))
+}
