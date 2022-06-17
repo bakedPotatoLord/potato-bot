@@ -1,7 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, Emoji } = require('discord.js');
 const { token } = require('./config.json');
+const { ClientRequest } = require('node:http');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
@@ -33,5 +34,13 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+client.on('message',async message => {
+	console.log("recived a message")
+	let disses =await fs.readFile("./disses.json","utf-8")
+	await message.reply(disses[Math.floor(Math.random()*disses.length)])
+
+});
+
 
 client.login(token);
