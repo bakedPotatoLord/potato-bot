@@ -45,7 +45,7 @@ client.on('messageCreate', message => {
 
 	if(message.author.id == "790765656571379762" || message.content.toLowerCase() == "diss me"){
 
-		
+		message.react('😡')
 		message.reply(disses[Math.floor(Math.random()*disses.length)])
 	}
 	
