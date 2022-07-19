@@ -26,8 +26,8 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	registerSelf()
-	client.user.setActivity("Potato Song",{
-		type:"LISTENING",
+	client.user.setActivity("Potato Simulator",{
+		type:'PLAYING',
 	});
 	console.log(`Ready at ${new Date(client.readyTimestamp)}`);
 });
