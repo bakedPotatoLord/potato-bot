@@ -24,8 +24,10 @@ module.exports={
 
             if(interaction.options.getString("stat")=="atk"){
                 userData.atk +=1
+                await interaction.reply(`trained atk. atk is now ${userData.atk}`)
             }else if(interaction.options.getString("stat")=="def"){
                 userData.def+=1
+                await interaction.reply(`trained def. def is now ${userData.def}`)
             }
             
 
@@ -33,6 +35,6 @@ module.exports={
             data.set(interaction.user.id, userData )
             await fs.writeFile("users.json",mapToJSON(data))
 
-            return interaction.reply(`trained atk`)
+            return 
         }
 }
