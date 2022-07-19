@@ -16,7 +16,6 @@ module.exports={
 
             let data = JSONToMap( await fs.readFile("users.json","utf-8") )
 
-
             if(data.has(interaction.options.getUser("user").id) && data.has(interaction.user.id)){
                 await interaction.reply('fight started')
                 await new Promise(res=>{setTimeout(res,2000)})
