@@ -3,7 +3,8 @@ const path = require('node:path');
 const { Client, Collection, Intents, Emoji, ReactionEmoji, MessageReaction } = require('discord.js');
 const { token } = require('./config.json');
 const { ClientRequest } = require('node:http');
-const disses = require("./disses.json") 
+const disses = require("./disses.json"); 
+const { registerSelf } = require('./helpers/registerSelf');
 
 const client = new Client({ intents: [
 	Intents.FLAGS.GUILDS,
@@ -22,6 +23,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+	registerSelf()
 	console.log(`Ready at ${client.readyTimestamp}`);
 });
 
