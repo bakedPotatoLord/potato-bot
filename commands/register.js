@@ -14,7 +14,7 @@ module.exports={
             if(users.has(interaction.user.id)){
                 return interaction.reply("you are already registered")
             }else{
-                users.set(interaction.user.id,{"user":interaction.user,"balance":0,"atk":0,"def":0,"health":10})
+                users.set(interaction.user.id,{"user":interaction.user,"balance":0,"atk":0,"def":0,"health":10,lastRegen:0})
                 await fs.writeFile("./users.json",mapToJSON(users))
                 return interaction.reply(`user added`)
             }
