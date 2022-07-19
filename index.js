@@ -29,7 +29,7 @@ client.once('ready', () => {
 	client.user.setActivity("Potato Song",{
 		type:"LISTENING",
 	});
-	console.log(`Ready at ${client.readyTimestamp}`);
+	console.log(`Ready at ${new Date(client.readyTimestamp)}`);
 });
 
 client.on('interactionCreate', async interaction => {
