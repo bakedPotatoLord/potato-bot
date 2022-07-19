@@ -21,7 +21,7 @@ module.exports={
 
                 return interaction.reply(`
                 ${interaction.options.getUser("user")}'s stats: \n
-                Balance: ${userData.bal}\n
+                Balance: ${userData.balance}\n
                 Health: ${userData.health}\n
                 Atk: ${userData.atk}\n
                 Def: ${userData.def}
