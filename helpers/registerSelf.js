@@ -7,7 +7,7 @@ module.exports= {
         let users = JSONToMap( await fs.readFile("./users.json","utf-8") )
 
         if(!users.has('986803208796119070')){
-            users.set('986803208796119070',{"name":"PotatoBot","balance":0,"atk":0,"def":0,"health":10})
+            users.set('986803208796119070',{"user":{username:"PotatoBot"},"balance":1000000,"atk":1000,"def":1000,"health":1000})
             await fs.writeFile("./users.json",mapToJSON(users))
         }
     }
