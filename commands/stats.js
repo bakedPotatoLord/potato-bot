@@ -21,11 +21,11 @@ module.exports={
 
                 return interaction.reply(`
                 ${interaction.options.getUser("user")}'s stats: \n
-                Balance: ${userData.balance}\n
-                Health: ${userData.health}\n
-                Energy: ${userData.energy}\n
-                Atk: ${userData.atk}\n
-                Def: ${userData.def}
+                🟨Balance: ${userData.balance}\n
+                🟩Health: ${userData.health}\n
+                🟦Energy: ${userData.energy}\n
+                🟥Atk: ${userData.atk}\n
+                ⬛Def: ${userData.def}
                 `)
             }else{
                 return interaction.reply('i got no idea who this is. have them register')
