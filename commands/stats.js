@@ -25,7 +25,7 @@ module.exports={
                 🟩Health: ${userData.health}\n
                 🟦Energy: ${userData.energy}\n
                 🟥Atk: ${userData.atk}\n
-                ⬛Def: ${userData.def}
+                🟫Def: ${userData.def}
                 `)
             }else{
                 return interaction.reply('i got no idea who this is. have them register')
