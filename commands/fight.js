@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { AnonymousGuild } = require('discord.js');
 const fs = require("fs/promises");
 const { JSONToMap, mapToJSON } = require('../helpers/mapToJson');
 
@@ -51,6 +52,26 @@ module.exports={
                         }else{
                             fightString+=`<@${p2Data.user.id}> attacks, causing 0 damage\n`
                         }
+                        await interaction.editReply(fightString)
+    
+                        await new Promise(res=>{setTimeout(res,1000)})
+
+                        let stealAmmount = Math.floor(Math.random()*3)
+
+                        if(p2Data.atk +p2Data.def > p1Data.def+p1Data.atk ){
+                            fightString+=`<@${p2Data.user.id}> steals ${stealAmmount} coins from <@${p1Data.user.id}>\n`
+                            p2Data.balance+=stealAmmount
+                            p1Data.balance-=stealAmmount
+                        }else if(p2Data.atk +p2Data.def < p1Data.def+p1Data.atk ){
+                            fightString+=`<@${p1Data.user.id}> steals ${stealAmmount} coins from <@${p2Data.user.id}>\n`
+                            p1Data.balance+=stealAmmount
+                            p2Data.balance-=stealAmmount
+                        }else{
+                            fightString+=`you knock each other out at the same time, causing you to both lose ${stealAmmount}`
+                            p2Data.balance-=stealAmmount
+                            p1Data.balance-=stealAmmount
+                        }
+                            
                         await interaction.editReply(fightString)
     
                         await new Promise(res=>{setTimeout(res,1000)})
