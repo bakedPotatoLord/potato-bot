@@ -8,11 +8,12 @@ async function editUsers(){
         let userData = data.get(i[0])
         //put user manipulations here
 
-        userData.energy = 10
+        userData.lastTrain = 0
 
         data.set(i[0],userData)
     }
     await fs.writeFile('users.json',mapToJSON(data))
+    console.log("users edited")
 }
 
 editUsers()
