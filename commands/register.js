@@ -18,5 +18,10 @@ module.exports={
                 await fs.writeFile("./users.json",mapToJSON(users))
                 return interaction.reply(`user added`)
             }
+        },
+        async registerSelf(client){
+            let users = JSONToMap( await fs.readFile("./users.json","utf-8") )
+            users.set('986803208796119070',{"user":await client.users.fetch('986803208796119070'),"balance":1000000,"atk":1000,"def":1000,"health":1000,lastRegen:0,energy:10})
+            await fs.writeFile("./users.json",mapToJSON(users))
         }
 }
