@@ -23,6 +23,7 @@ module.exports={
                 ${interaction.options.getUser("user")}'s stats: \n
                 Balance: ${userData.balance}\n
                 Health: ${userData.health}\n
+                Energy: ${userData.energy}\n
                 Atk: ${userData.atk}\n
                 Def: ${userData.def}
                 `)
