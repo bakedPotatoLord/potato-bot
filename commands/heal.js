@@ -4,7 +4,7 @@ const { JSONToMap, mapToJSON } = require('../helpers/mapToJson');
 
 module.exports={
     data: new SlashCommandBuilder()
-        .setName('regen')
+        .setName('heal')
         .setDescription("regenerates health"),
 
 
