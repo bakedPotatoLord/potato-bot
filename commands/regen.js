@@ -18,7 +18,7 @@ module.exports={
                 if(userData.health >= 10){
                     return await interaction.reply('health is already maxed')
                 }else if( Date.now() - userData.lastRegen  <= 60000){
-                    return await interaction.reply(`you must wait ${60-Math.round(Date.now() - userData.lastRegen)} more secs to regenerate health`)
+                    return await interaction.reply(`you must wait ${Math.round(60-(Date.now() - userData.lastRegen)/1000)} more secs to regenerate health`)
                 }else{
                     userData.health++
                     userData.lastRegen = Date.now()
