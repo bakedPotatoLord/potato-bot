@@ -24,7 +24,7 @@ module.exports={
                     .setColor('#0099ff')
                     .setTitle(`${interaction.options.getUser("user").tag}'s stats:`)
                     //.setDescription('this dude kinda boolin')
-                    .setImage(interaction.options.getUser("user").displayAvatarURL)
+                    .setImage(interaction.options.getUser("user").displayAvatarURL({ dynamic: true }))
                     .addFields(
                         { name: '🟨Balance', value: userData.balance.toString(), inline:true},
                         { name: '🟩Health', value: userData.health.toString(), inline: true },
