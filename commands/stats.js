@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require("fs/promises");
 const { JSONToMap, mapToJSON } = require('../helpers/mapToJson');
+const { MessageEmbed } = require('discord.js');
 
 module.exports={
     data: new SlashCommandBuilder()
@@ -19,14 +20,23 @@ module.exports={
             if(data.has(interaction.options.getUser("user").id)){
                 let userData = data.get(interaction.options.getUser("user").id)
 
-                return interaction.reply(`
-                ${interaction.options.getUser("user")}'s stats: \n
-                🟨Balance: ${userData.balance}\n
-                🟩Health: ${userData.health}\n
-                🟦Energy: ${userData.energy}\n
-                🟥Atk: ${userData.atk}\n
-                🟫Def: ${userData.def}
-                `)
+                await interaction.reply( {embeds:[new MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(`${interaction.options.getUser("user").tag}'s stats:`)
+                    //.setDescription('this dude kinda boolin')
+                    .setImage(interaction.options.getUser("user").displayAvatarURL)
+                    .addFields(
+                        { name: '🟨Balance', value: userData.balance.toString(), inline:true},
+                        { name: '🟩Health', value: userData.health.toString(), inline: true },
+                        { name: '🟦Energy', value: userData.energy.toString(), inline: true },
+                        { name: '🟥Atk', value: userData.atk.toString(), inline: true },
+                        { name: '🟫Def', value: userData.def.toString(), inline: true },
+                        { name: '🥔Potatoes', value: userData.potatoes.toString(), inline: true },
+                    )
+    
+                    .setTimestamp()
+                    .setFooter({ text: 'only losers read the footer'})
+                    ]})
             }else{
                 return interaction.reply('i got no idea who this is. have them register')
             }
