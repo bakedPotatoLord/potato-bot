@@ -11,7 +11,7 @@ module.exports={
         let map = new Map(Object.entries(JSON.parse(json)))
         for(i of map){
             let userData = i[1]
-            userData.potatoes = BigInt( userData.potatoes )
+            userData.potatoes = BigInt( userData.potatoes.slice(0, -1) )
             map.set(i[0],userData)
         }
         return map
