@@ -4,7 +4,7 @@ const { Client, Collection, Intents, Emoji, ReactionEmoji, MessageReaction } = r
 const { token } = require('./config.json');
 const { ClientRequest } = require('node:http');
 const disses = require("./disses.json"); 
-const { registerSelf } = require('./helpers/registerSelf');
+const { registerSelf } = require('./commands/register');
 
 const client = new Client({ intents: [
 	Intents.FLAGS.GUILDS,
@@ -25,7 +25,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	registerSelf()
+	registerSelf(client)
 	client.user.setActivity("Potato Simulator",{
 		type:'PLAYING',
 	});
