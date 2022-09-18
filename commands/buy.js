@@ -6,6 +6,7 @@ module.exports={
     data: new SlashCommandBuilder()
         .setName('buy')
         .setDescription("Buy something")
+        /*
         .addStringOption(option => 
             option.setName('item')
             //.setDescription('The item that you wish to buy')
@@ -18,9 +19,9 @@ module.exports={
             option.setName('ammount')
             //.setDescription('Ammount of the product to buy')
             .setRequired(true)
-        ),
-
-        async execute(interaction){
+        )
+            */
+        ,async execute(interaction){
 
             let data = JSONToMap( await fs.readFile("users.json","utf-8") )
 
