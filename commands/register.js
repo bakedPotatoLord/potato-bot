@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const {mapToJSON,JSONToMap} = require('../helpers/mapToJson')
+const {mapToJSON,JSONToMap} = require('../helpers/mapToJson.js')
 const fs = require("fs/promises")
 
 module.exports={
