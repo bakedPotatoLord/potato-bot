@@ -4,7 +4,7 @@ const { Client, Collection, Intents, Emoji, ReactionEmoji, MessageReaction } = r
 const { token } = require('./config.json');
 const { ClientRequest } = require('node:http');
 const disses = require("./disses.json"); 
-const { registerSelf } = require('./commands/register');
+const { registerSelf } = require('./commands/register.js');
 
 const client = new Client({ intents: [
 	Intents.FLAGS.GUILDS,
