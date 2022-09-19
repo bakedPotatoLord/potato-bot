@@ -2,8 +2,18 @@
 
 A discord bot using the discord.js API 
 
-# commands
+# start the bot
 
+for testing:
+```bash
+npm run start
+```
+or if running on a server and want to make use of the /shutdown command
+```bash
+npm run constantRun
+```
+
+# commands
 
 |name|what it do|
 |----|-----------|
