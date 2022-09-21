@@ -30,6 +30,8 @@ client.once('ready', () => {
 		type:'PLAYING',
 	});
 	console.log(`Ready at ${new Date(client.readyTimestamp)}`);
+
+	fs.writeFileSync("guilds.json",JSON.stringify(client.guilds.cache.map(guild => guild.id)),"utf-8")
 });
 
 client.on('interactionCreate', async interaction => {
