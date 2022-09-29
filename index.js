@@ -5,6 +5,7 @@ const { token } = require('./config.json');
 const { ClientRequest } = require('node:http');
 const disses = require("./disses.json"); 
 const { registerSelf } = require('./commands/register.js');
+const {deployCommands} = require('./deployCommands.js')
 
 const client = new Client({ intents: [
 	Intents.FLAGS.GUILDS,
@@ -31,7 +32,7 @@ client.once('ready', () => {
 	});
 	console.log(`Ready at ${new Date(client.readyTimestamp)}`);
 
-	fs.writeFileSync("guilds.json",JSON.stringify(client.guilds.cache.map(guild => guild.id)),"utf-8")
+	deployCommands(client.guilds.cache.map(guild => guild.id))
 });
 
 client.on('interactionCreate', async interaction => {
